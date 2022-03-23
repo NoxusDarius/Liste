@@ -143,6 +143,7 @@ class LinkedList:
         end = time.time()
         print("Zeit zum Sortieren der Linkedlist aufsteigend:")
         print('{:5.3f}s'.format(end-start))
+        return end-start
 
     def sortDESC(self):
         start = time.time()
@@ -157,6 +158,7 @@ class LinkedList:
         end = time.time()
         print("Zeit zum Sortieren der Linkedlist absteigend:")
         print('{:5.3f}s'.format(end-start))
+        return end-start
 
 
 class Arraylist:
@@ -214,6 +216,7 @@ class Arraylist:
             end = time.time()
         print("Zeit zum Sortieren der List aufsteigend:")
         print('{:5.3f}s'.format(end-start))
+        return end-start
     
     def sortDESC(self):
         start = time.time()
@@ -227,6 +230,7 @@ class Arraylist:
             end = time.time()
         print("Zeit zum Sortieren der List absteigend:")
         print('{:5.3f}s'.format(end-start))
+        return end-start
             
 
 
@@ -257,7 +261,9 @@ def befuellen_array(x, arrayl):
     print("Zeit zum Befüllen der Arraylistt:")
     print('{:5.3f}s'.format(end-start))
     
-
+    
+def ausgabe():
+    print("Hier ist die Verlinkung zu einer anderren Datei")
 
 if __name__ == '__main__':
     print("Programm Startet")
