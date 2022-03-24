@@ -160,6 +160,14 @@ class LinkedList:
         print('{:5.3f}s'.format(end-start))
         return end-start
 
+    def clear_list(self):
+        curr = self.head
+        while curr:
+            temp = curr.next
+            del curr.data
+            curr = temp
+        print("LinkedList deleted")
+
 
 class Arraylist:
     def __init__(self):
@@ -175,41 +183,41 @@ class Arraylist:
     def delete_before(self, index):
         if 0 < index < len(self.list) and index - 1 > -1:
             self.list.pop(index - 1)
-    
+
     def delete_index(self, index):
         self.list.pop(index)
-    
+
     def insert_after(self, index, val):
         if 0 <= index < len(self.list):
             self.list.insert(index + 1, val)
-    
-    def insert_before(self, index, val):	
-        if 0 <= index < len(self.list) and index - 1 >=0:
-            self.list.insert(index -1, val)
-    
+
+    def insert_before(self, index, val):
+        if 0 <= index < len(self.list) and index - 1 >= 0:
+            self.list.insert(index - 1, val)
+
     def insert_index_after(self, index, val):
         self.list.insert(index, val)
-    
+
     def ausgabe_list(self):
         for index in self.list:
             print(index)
-    
+
     def laenge_list(self):
         return len(self.list)
 
     def find(self, val):
         for index in self.list:
             if index == val:
-                print(index,"Value wurde hier gefunden")
+                print(index, "Value wurde hier gefunden")
             else:
                 print("Wert existiert nicht")
-    
+
     def sortASC(self):
         start = time.time()
         for i in range(1, len(self.list)):
             key = self.list[i]
             j = i-1
-            while j>= 0 and key < self.list[j]:
+            while j >= 0 and key < self.list[j]:
                 self.list[j+1] = self.list[j]
                 j -= 1
             self.list[j+1] = key
@@ -217,13 +225,13 @@ class Arraylist:
         print("Zeit zum Sortieren der List aufsteigend:")
         print('{:5.3f}s'.format(end-start))
         return end-start
-    
+
     def sortDESC(self):
         start = time.time()
         for i in range(1, len(self.list)):
             key = self.list[i]
             j = i-1
-            while j >=0 and key > self.list[j]:
+            while j >= 0 and key > self.list[j]:
                 self.list[j+1] = self.list[j]
                 j -= 1
             self.list[j+1] = key
@@ -231,10 +239,6 @@ class Arraylist:
         print("Zeit zum Sortieren der List absteigend:")
         print('{:5.3f}s'.format(end-start))
         return end-start
-            
-
-
-           
 
 
 def werte_erstellen(zahl):
@@ -249,31 +253,35 @@ def befuellen_linked(x, linkedl):
     start = time.time()
     for i in range(len(x)):
         linkedl.insert(Node(x[i]))
-        end = time.time()
+    end = time.time()
     print("Zeit zum Befüllen der Linkedlist:")
     print('{:5.3f}s'.format(end-start))
+    return end-start
+
 
 def befuellen_array(x, arrayl):
     start = time.time()
     for i in range(len(x)):
         arrayl.insert(x[i])
-        end = time.time()
+    end = time.time()
     print("Zeit zum Befüllen der Arraylistt:")
     print('{:5.3f}s'.format(end-start))
-    
-    
+    return end-start
+
+
 def ausgabe():
     print("Hier ist die Verlinkung zu einer anderren Datei")
+
 
 if __name__ == '__main__':
     print("Programm Startet")
     ll = LinkedList()
     ar = Arraylist()
     x = werte_erstellen(10000)
-    
+
     befuellen_linked(x, ll)
-    befuellen_array(x,ar)
-    
+    befuellen_array(x, ar)
+
     print("LinkedList")
     print("----------------------------------------------------------------")
     ll.sortASC()
